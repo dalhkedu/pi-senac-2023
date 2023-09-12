@@ -2,10 +2,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>br.com.universidade</groupId>
-  <artifactId>cadastro</artifactId>
+  <artifactId>pessoas</artifactId>
   <packaging>war</packaging>
+  <properties>
+    <maven.compiler.source>20</maven.compiler.source>
+    <maven.compiler.target>20</maven.compiler.target>
+  </properties>
   <version>1.0-SNAPSHOT</version>
-  <name>untitled1 Maven Webapp</name>
+  <name>cadastro Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
@@ -30,34 +34,46 @@
       <version>1.2</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>2.2.222</version>
+    </dependency>
+
+
   </dependencies>
   <build>
-    <finalName>cadastro</finalName>
+    <finalName>pessoas</finalName>
     <plugins>
 
+        <plugin>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat7-maven-plugin</artifactId>
+          <version>2.2</version>
+          <configuration>
+            <path>/</path>
+          </configuration>
+          <executions>
+            <execution>
+              <id>tomcat-run</id>
+              <goals>
+                <goal>exec-war</goal>
+              </goals>
+              <phase>package</phase>
+              <configuration>
+                <enableNaming>false</enableNaming>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
       <plugin>
-        <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat7-maven-plugin</artifactId>
-        <version>2.2</version>
-        <executions>
-          <execution>
-            <id>tomcat-run</id>
-            <goals>
-              <goal>exec-war</goal>
-            </goals>
-            <phase>package</phase>
-            <configuration>
-              <enabledWarning>false</enabledWarning>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.4.0</version>
         <configuration>
-          <webappDirectory>/sample/servlet/container/deploy/directory</webappDirectory>
+          <webXml>src\main\webapp\WEB-INF\web.xml</webXml>
+          <warSourceDirectory>src/main/webapp</warSourceDirectory>
         </configuration>
       </plugin>
     </plugins>
