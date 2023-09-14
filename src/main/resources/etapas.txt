@@ -1,0 +1,37 @@
+Java versão 20
+Ao baixar o java, deve executar -> mvn clean install
+depois executar -> tomcat7:run
+acessar http://localhost:8080/
+para visualizar a primeira tela
+acessar http://localhost:8080/console
+para visualizar
+
+
+Service - PessoaDao (Ja existe a classe, apenas ajustar as variaveis e metodos)
+    var -> listaPessoas, listaProfessores, listaAlunos, listaFornecedores
+    metodos -> getPessoas, getProfessores, getAlunos, getFornecedores
+    metodos -> cadastroPessoas, cadastroProfessores, cadastroAlunos, cadastroFornecedores
+
+Classe Pessoa (Ja existe a classe, apenas ajustar as variaveis e metodos)
+    var -> nome, email, telefone, endereco
+    metodos -> gets, sets e construtor
+
+Classe PessoaFisica estende Pessoa
+    var -> cpf, dataNascimento
+    metodos -> gets, sets e construtor
+
+Classe PessoaJuridica estende Pessoa
+    var -> cnpj, razaoSocial
+    metodos -> gets, sets e construtor
+
+Classe Profesor estende Pessoa
+    var -> departamento, pessoa
+    metodos -> gets, sets e construtor
+
+Classe Aluno estende PessoaFisica
+    var -> matricula, pessoaFisica
+    metodos -> gets, sets e construtor
+
+Classe Fornecedor estende PessoaJuridica
+    var -> categoria, PessoaJuridica
+    metodos -> gets, sets e construtor

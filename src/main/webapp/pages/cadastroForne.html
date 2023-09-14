@@ -14,11 +14,26 @@
     </div>
     <div class="menu">
         <h1>Cadastro de Fornecedores</h1>
-        <form class="cadastro-form">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required><br>
-            <label for="produto">Produto:</label>
-            <input type="text" id="produto" name="produto" required><br>
+        <form class="cadastro-form" method="POST" action="/pessoas">
+
+            <label for="nome-completo">Nome:</label>
+            <input type="text" id="nome-completo" name="nome-completo" ><br>
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" ><br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" ><br>
+            <label for="endereco">Endereco:</label>
+            <input type="text" id="endereco" name="endereco" ><br>
+
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" id="cnpj" name="cnpj" ><br>
+
+            <label for="social">Razao Social:</label>
+            <input type="text" id="social" name="social" ><br>
+
+            <label for="categoria">Categoria:</label>
+            <input type="text" id="categoria" name="categoria" ><br>
+
             <button type="submit">Cadastrar</button>
         </form>
     </div>

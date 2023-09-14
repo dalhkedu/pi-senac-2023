@@ -14,11 +14,20 @@
     </div>
     <div class="menu">
         <h1>Cadastro de Professores</h1>
-        <form class="cadastro-form">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required><br>
-            <label for="disciplina">Disciplina:</label>
-            <input type="text" id="disciplina" name="disciplina" required><br>
+        <form class="cadastro-form" method="POST" action="/pessoas">
+
+            <label for="nome-completo">Nome:</label>
+            <input type="text" id="nome-completo" name="nome-completo" ><br>
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" ><br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" ><br>
+            <label for="endereco">Endereco:</label>
+            <input type="text" id="endereco" name="endereco" ><br>
+
+            <label for="departamento">Departamento:</label>
+            <input type="text" id="departamento" name="departamento" ><br>
+
             <button type="submit">Cadastrar</button>
         </form>
     </div>
