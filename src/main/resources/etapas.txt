@@ -4,7 +4,10 @@ depois executar -> tomcat7:run
 acessar http://localhost:8080/
 para visualizar a primeira tela
 acessar http://localhost:8080/console
-para visualizar
+para visualizar o banco de dados
+usuario: sa
+password: sa
+e executar o comando create table que esta no arquivo comandos.sql
 
 
 Service - PessoaDao (Ja existe a classe, apenas ajustar as variaveis e metodos)
