@@ -2,98 +2,60 @@ package br.com.universidade.model;
 
 import java.util.Objects;
 
-public class FornecedorModel {
+public class FornecedorModel extends PessoaJuridicaModel {
 
-    private String nomeFornecedor;
-    private String telefoneFornecedor;
-    private String emailFornecedor;
-    private String enderecoFornecedor;
-    private String cnpjFornecedor;
-    private String razaoSocialFornecedor;
-    private String categoriaFornecedor;
+    private String categoria;
 
-    public FornecedorModel(String nomeFornecedor, String telefoneFornecedor, String emailFornecedor, String enderecoFornecedor, String cnpjFornecedor, String razaoSocialFornecedor, String categoriaFornecedor) {
-        this.nomeFornecedor = nomeFornecedor;
-        this.telefoneFornecedor = telefoneFornecedor;
-        this.emailFornecedor = emailFornecedor;
-        this.enderecoFornecedor = enderecoFornecedor;
-        this.cnpjFornecedor = cnpjFornecedor;
-        this.razaoSocialFornecedor = razaoSocialFornecedor;
-        this.categoriaFornecedor = categoriaFornecedor;
+    public FornecedorModel(String nome, String email, String telefone, String endereco, String cnpj, String razaoSocial, String categoria) {
+        super(nome, email, telefone, endereco, cnpj, razaoSocial);
+        this.categoria = categoria;
     }
 
-    public String getNomeFornecedor() {
-        return nomeFornecedor;
+    public FornecedorModel(String nome, String email, String cnpj, String razaoSocial, String categoria) {
+        super(nome, email, cnpj, razaoSocial);
+        this.categoria = categoria;
     }
 
-    public void setNomeFornecedor(String nomeFornecedor) {
-        this.nomeFornecedor = nomeFornecedor;
+    public FornecedorModel(String nome, String cnpj, String razaoSocial, String categoria) {
+        super(nome, cnpj, razaoSocial);
+        this.categoria = categoria;
     }
 
-    public String getTelefoneFornecedor() {
-        return telefoneFornecedor;
+    public FornecedorModel(String nome, String categoria) {
+        super(nome);
+        this.categoria = categoria;
     }
 
-    public void setTelefoneFornecedor(String telefoneFornecedor) {
-        this.telefoneFornecedor = telefoneFornecedor;
+    public FornecedorModel(String nome) {
+        super(nome);
     }
 
-    public String getEmailFornecedor() {
-        return emailFornecedor;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setEmailFornecedor(String emailFornecedor) {
-        this.emailFornecedor = emailFornecedor;
-    }
-
-    public String getEnderecoFornecedor() {
-        return enderecoFornecedor;
-    }
-
-    public void setEnderecoFornecedor(String enderecoFornecedor) {
-        this.enderecoFornecedor = enderecoFornecedor;
-    }
-
-    public String getCnpjFornecedor() {
-        return cnpjFornecedor;
-    }
-
-    public void setCnpjFornecedor(String cnpjFornecedor) {
-        this.cnpjFornecedor = cnpjFornecedor;
-    }
-
-    public String getRazaoSocialFornecedor() {
-        return razaoSocialFornecedor;
-    }
-
-    public void setRazaoSocialFornecedor(String razaoSocialFornecedor) {
-        this.razaoSocialFornecedor = razaoSocialFornecedor;
-    }
-
-    public String getCategoriaFornecedor() {
-        return categoriaFornecedor;
-    }
-
-    public void setCategoriaFornecedor(String categoriaFornecedor) {
-        this.categoriaFornecedor = categoriaFornecedor;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         FornecedorModel that = (FornecedorModel) o;
-        return Objects.equals(nomeFornecedor, that.nomeFornecedor) &&
-                Objects.equals(telefoneFornecedor, that.telefoneFornecedor) &&
-                Objects.equals(emailFornecedor, that.emailFornecedor) &&
-                Objects.equals(enderecoFornecedor, that.enderecoFornecedor) &&
-                Objects.equals(cnpjFornecedor, that.cnpjFornecedor) &&
-                Objects.equals(razaoSocialFornecedor, that.razaoSocialFornecedor) &&
-                Objects.equals(categoriaFornecedor, that.categoriaFornecedor);
+        return Objects.equals(categoria, that.categoria);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nomeFornecedor, telefoneFornecedor, emailFornecedor, enderecoFornecedor, cnpjFornecedor, razaoSocialFornecedor, categoriaFornecedor);
+        return Objects.hash(super.hashCode(), categoria);
+    }
+
+    @Override
+    public String toString() {
+        return "FornecedorModel{" +
+                "categoria='" + categoria + '\'' +
+                '}';
     }
 }
