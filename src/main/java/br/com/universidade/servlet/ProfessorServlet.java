@@ -18,8 +18,12 @@ public class ProfessorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String nome = request.getParameter("nome");
-        System.out.println(nome);
+        String telefone = request.getParameter("telefone");
+        String email = request.getParameter("email");
+        String endereco = request.getParameter("endereco");
+        String departamento = request.getParameter("departamento");
         ProfessorModel pessoa = new ProfessorModel(nome);
+        System.out.println(pessoa);
         new SistemaGestaoEscolarDao().cadastrarProfessor(pessoa);
         request.getRequestDispatcher("index.html").forward(request, response);
     }

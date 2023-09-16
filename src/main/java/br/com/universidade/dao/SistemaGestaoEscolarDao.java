@@ -15,8 +15,7 @@ import java.util.List;
 public class SistemaGestaoEscolarDao {
 
     public void cadastrarProfessor(ProfessorModel pessoa) {
-        // String SQL = "INSERT INTO PROFESSOR NOME, EMAIL, DEPARTAMENTO, TELEFONE, ENDERECO, NASCIMENTO VALUES (?, ?, ?, ?, ?, ?, ?)";
-        String SQL = "INSERT INTO PROFESSOR NOME VALUES (?)";
+        String SQL = "INSERT INTO PROFESSOR (NOME, EMAIL, DEPARTAMENTO, TELEFONE, ENDERECO) VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
@@ -28,7 +27,6 @@ public class SistemaGestaoEscolarDao {
             preparedStatement.setString(3, pessoa.getDepartamento());
             preparedStatement.setString(4, pessoa.getTelefone());
             preparedStatement.setString(5, pessoa.getEndereco());
-            preparedStatement.setString(6, pessoa.getDataNascimento());
 
             preparedStatement.execute();
             System.out.println("Sucesso na inserção");
@@ -71,14 +69,19 @@ public class SistemaGestaoEscolarDao {
     }
 
     public void cadastrarFornecedor(FornecedorModel pessoa) {
-        // String SQL = "INSERT INTO FORNECEDOR NOME, EMAIL, CNPJ, TELEFONE, ENDERECO, NASCIMENTO, SOCIAL, CATEGORIA VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        String SQL = "INSERT INTO FORNECEDOR NOME VALUES (?)";
+        String SQL = "INSERT INTO FORNECEDOR (NOME, EMAIL, CNPJ, TELEFONE, ENDERECO, SOCIAL, CATEGORIA) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
             System.out.println("Sucesso na conexao");
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             preparedStatement.setString(1, pessoa.getNome());
+            preparedStatement.setString(2, pessoa.getEmail());
+            preparedStatement.setString(3, pessoa.getCnpj());
+            preparedStatement.setString(4, pessoa.getTelefone());
+            preparedStatement.setString(5, pessoa.getEndereco());
+            preparedStatement.setString(6, pessoa.getRazaoSocial());
+            preparedStatement.setString(7, pessoa.getCategoria());
             preparedStatement.execute();
             System.out.println("Sucesso na inserção");
 
@@ -120,8 +123,8 @@ public class SistemaGestaoEscolarDao {
     }
 
     public void cadastrarAluno(AlunoModel pessoa) {
-        // String SQL = "INSERT INTO ALUNO NOME, EMAIL, CPF, MATRICULA, TELEFONE, ENDERECO, NASCIMENTO VALUES (?, ?, ?, ?, ?, ?, ?)";
-        String SQL = "INSERT INTO ALUNO NOME VALUES (?)";
+        String SQL = "INSERT INTO ALUNO (NOME, EMAIL, CPF, MATRICULA, TELEFONE, ENDERECO, NASCIMENTO) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        // String SQL = "INSERT INTO ALUNO NOME VALUES (?)";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
@@ -129,6 +132,12 @@ public class SistemaGestaoEscolarDao {
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             preparedStatement.setString(1, pessoa.getNome());
+            preparedStatement.setString(2, pessoa.getEmail());
+            preparedStatement.setString(3, pessoa.getCpf());
+            preparedStatement.setString(4, pessoa.getMatricula());
+            preparedStatement.setString(5, pessoa.getTelefone());
+            preparedStatement.setString(6, pessoa.getEndereco());
+            preparedStatement.setString(7, pessoa.getDataNascimento());
             preparedStatement.execute();
             System.out.println("Sucesso na inserção");
 

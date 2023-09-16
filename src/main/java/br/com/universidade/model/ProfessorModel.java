@@ -2,22 +2,17 @@ package br.com.universidade.model;
 
 import java.util.Objects;
 
-public class ProfessorModel extends PessoaFisicaModel {
+public class ProfessorModel extends PessoaModel {
 
     private String departamento;
 
-    public ProfessorModel(String nome, String email, String telefone, String endereco, String cpf, String dataNascimento, String departamento) {
-        super(nome, email, telefone, endereco, cpf, dataNascimento);
+    public ProfessorModel(String nome, String email, String telefone, String endereco, String departamento) {
+        super(nome, email, telefone, endereco);
         this.departamento = departamento;
     }
 
-    public ProfessorModel(String nome, String email, String cpf, String dataNascimento, String departamento) {
-        super(nome, email, cpf, dataNascimento);
-        this.departamento = departamento;
-    }
-
-    public ProfessorModel(String nome, String cpf, String dataNascimento, String departamento) {
-        super(nome, cpf, dataNascimento);
+    public ProfessorModel(String nome, String email, String departamento) {
+        super(nome, email);
         this.departamento = departamento;
     }
 

@@ -30,6 +30,14 @@ public class AlunoModel extends PessoaFisicaModel {
         super(nome);
     }
 
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

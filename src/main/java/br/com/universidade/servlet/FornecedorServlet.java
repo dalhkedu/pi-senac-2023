@@ -18,8 +18,14 @@ public class FornecedorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String nome = request.getParameter("nome");
+        String telefone = request.getParameter("telefone");
+        String email = request.getParameter("email");
+        String endereco = request.getParameter("endereco");
+        String cnpj = request.getParameter("cnpj");
+        String razaoSocial = request.getParameter("razaoSocial");
+        String categoria = request.getParameter("categoria");
         System.out.println(nome);
-        FornecedorModel pessoa = new FornecedorModel(nome);
+        FornecedorModel pessoa = new FornecedorModel(nome, telefone, email, endereco, cnpj, razaoSocial, categoria);
         new SistemaGestaoEscolarDao().cadastrarFornecedor(pessoa);
         request.getRequestDispatcher("index.html").forward(request, response);
     }
